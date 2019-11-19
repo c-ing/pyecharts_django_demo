@@ -1,0 +1,1 @@
+pyecharts官网文档：http://pyecharts.org/#/zh-cn/web_django?id=django-%e5%89%8d%e5%90%8e%e7%ab%af%e5%88%86%e7%a6%bb
