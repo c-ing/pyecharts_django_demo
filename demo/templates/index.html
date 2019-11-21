@@ -2,9 +2,9 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div class="container">
-    <div  class="pull-left" id="bar" style="width:1000px; height:600px;"></div>
-    <div  class="pull-right" id="scatter" style="width:1000px; height:600px;"></div>
+    <div class="container-fluid">
+    <div   id="bar" style="width:600px; height:400px;float:left;"></div>
+    <div  id="scatter" style="width:600px; height:400px;float:right;"></div>
     </div>
     <script>
         var chart = echarts.init(document.getElementById('bar'), 'white', {renderer: 'canvas'});
