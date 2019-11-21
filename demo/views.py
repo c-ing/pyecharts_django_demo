@@ -9,7 +9,8 @@ from random import randrange
 from django.http import HttpResponse
 from rest_framework.views import APIView
 
-from pyecharts.charts import Bar
+from pyecharts.faker import Faker
+from pyecharts.charts import Bar,Scatter
 from pyecharts import options as opts
 from django.template import loader
 
@@ -60,9 +61,25 @@ def bar_base() -> Bar:
     return c
 
 
+def scatter_base()->Scatter:
+    c = (
+        Scatter()
+            .add_xaxis(Faker.choose())
+            .add_yaxis("商家A", Faker.values())
+            .set_global_opts(title_opts=opts.TitleOpts(title="Scatter-基本示例"))
+            .dump_options_with_quotes()
+    )
+    return c
+
+
 class ChartView(APIView):
     def get(self, request, *args, **kwargs):
         return JsonResponse(json.loads(bar_base()))
+
+
+class ScatterView(APIView):
+    def get(self,request,*args,**kwargs):
+        return JsonResponse(json.loads(scatter_base()))
 
 
 class IndexView(APIView):
