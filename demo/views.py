@@ -10,9 +10,11 @@ from django.http import HttpResponse
 from rest_framework.views import APIView
 
 from pyecharts.faker import Faker
-from pyecharts.charts import Bar,Scatter
+from pyecharts.charts import Bar,Scatter,Line
 from pyecharts import options as opts
 from django.template import loader
+
+import pandas as pd
 
 
 # Create your views here.
@@ -69,6 +71,39 @@ def scatter_base()->Scatter:
             .set_global_opts(title_opts=opts.TitleOpts(title="Scatter-基本示例"))
             .dump_options_with_quotes()
     )
+    print("===========scatter======")
+    print(c)
+    print("=========type==========")
+    print(type(c))
+    return c
+
+
+def line_base()->Line:
+    df = pd.read_csv('D:\precast_sale.csv', parse_dates=['date'], index_col='date')
+    df['amount'] = round(df['amount'] / 1000, 2)
+    # print(df)
+    # 季节性时间序列的可视化
+    df.reset_index(inplace=True)
+    # Prepare data
+    df['year'] = [d.year for d in df.date]
+    df['month'] = [d.strftime('%m') for d in df.date]
+    years = df['year'].unique()
+    grouped2 = df['amount'].groupby([df['year'], df['month']]).sum().reset_index()
+    print("==============")
+    print(list(grouped2.loc[grouped2.year == 2015, :]['amount']))
+    c = (
+        Line()
+        .add_xaxis(['1','2','3','4','5','6','7','8','9','10','11','12'])
+        .add_yaxis("2015年",list(grouped2.loc[grouped2.year==2015,:]['amount']))
+        .add_yaxis("2016年", list(grouped2.loc[grouped2.year == 2016, :]['amount']))
+        .add_yaxis("2017年", list(grouped2.loc[grouped2.year == 2017, :]['amount']))
+            .add_yaxis("2018年", list(grouped2.loc[grouped2.year == 2018, :]['amount']))
+            .add_yaxis("2019年", list(grouped2.loc[grouped2.year == 2019, :]['amount']))
+        .set_global_opts(title_opts=opts.TitleOpts(title="Line-自营销售数据"))
+         .dump_options_with_quotes()
+    )
+    print("===========tpye-line=======")
+    print(type(c))
     return c
 
 
@@ -81,6 +116,10 @@ class ScatterView(APIView):
     def get(self,request,*args,**kwargs):
         return JsonResponse(json.loads(scatter_base()))
 
+
+class LineView(APIView):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse(json.loads(line_base()))
 
 class IndexView(APIView):
     def get(self, request, *args, **kwargs):

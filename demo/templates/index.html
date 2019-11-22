@@ -5,10 +5,12 @@
     <div class="container-fluid">
     <div   id="bar" style="width:600px; height:400px;float:left;"></div>
     <div  id="scatter" style="width:600px; height:400px;float:right;"></div>
+     <div  id="line" style="width:1500px; height:1200px;float:left;"></div>
     </div>
     <script>
         var chart = echarts.init(document.getElementById('bar'), 'white', {renderer: 'canvas'});
         var scatter = echarts.init(document.getElementById('scatter'), 'white', {renderer: 'canvas'});
+        var line = echarts.init(document.getElementById('line'), 'white', {renderer: 'canvas'});
 
         $(
             function () {
@@ -40,6 +42,23 @@
                 dataType: 'json',
                 success: function (result) {
                     scatter.setOption(result.data);
+                }
+            });
+        }
+
+        $(
+            function () {
+                fetchData3(line);
+            }
+        );
+
+        function fetchData3() {
+            $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:8000/demo/line",
+                dataType: 'json',
+                success: function (result) {
+                    line.setOption(result.data);
                 }
             });
         }
