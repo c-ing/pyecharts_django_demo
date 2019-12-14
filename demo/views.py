@@ -9,6 +9,9 @@ from random import randrange
 from django.http import HttpResponse
 from rest_framework.views import APIView
 
+# 只需要在顶部声明 CurrentConfig.ONLINE_HOST 即可
+from pyecharts.globals import CurrentConfig
+#CurrentConfig.ONLINE_HOST = "http://127.0.0.1:8000/assets/"
 from pyecharts.faker import Faker
 from pyecharts.charts import Bar,Scatter,Line
 from pyecharts import options as opts
