@@ -2,7 +2,7 @@ airtest==1.1.1
 certifi==2019.9.11
 chardet==3.0.4
 comtypes==1.1.7
-Django==1.11.4
+Django==1.11.23
 djangorestframework==3.10.3
 facebook-wda==0.2.1
 hrpc==1.0.8
