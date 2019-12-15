@@ -10,5 +10,15 @@ https://blog.csdn.net/arnolan/article/details/91459831
 在旧设备上快速生成requirement.txt的安装文件（文件名可以任意）
 pip freeze > requirements.txt
 将项目迁移到新设备上后，在虚拟环境中安装所需要的文件
-(venv)pip install -r requirement.txt
+(venv)pip install -r requirements.txt
 当前总结下经验，如果要迁移项目，不要迁移venv，只要把依赖生成到requirement文件，然后在新机器上根据requirement文件安装依赖即可。
+生成requirements.txt的第二种方式：
+# 安装
+pip install pipreqs
+# 在当前目录生成
+pipreqs . --encoding=utf8 --force
+
+
+-- bokeh
+https://docs.bokeh.org/en/latest/docs/installation.html
+https://www.zhangshengrong.com/p/zAaOK6A9ad/
