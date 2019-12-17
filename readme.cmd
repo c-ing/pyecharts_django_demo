@@ -22,3 +22,5 @@ pipreqs . --encoding=utf8 --force
 -- bokeh
 https://docs.bokeh.org/en/latest/docs/installation.html
 https://www.zhangshengrong.com/p/zAaOK6A9ad/
+
+https://www.jianshu.com/p/1d367c8e9128
