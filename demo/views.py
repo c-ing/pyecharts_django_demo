@@ -11,9 +11,9 @@ from rest_framework.views import APIView
 
 # 只需要在顶部声明 CurrentConfig.ONLINE_HOST 即可
 from pyecharts.globals import CurrentConfig
-CurrentConfig.ONLINE_HOST = "http://127.0.0.1:8000/static/js/"
-from example.commons import Faker
-from pyecharts.charts import Bar,Page,Scatter,Line
+#CurrentConfig.ONLINE_HOST = "http://127.0.0.1:8000/assets/"
+from pyecharts.faker import Faker
+from pyecharts.charts import Bar,Scatter,Line
 from pyecharts import options as opts
 from django.template import loader
 
@@ -148,11 +148,10 @@ def index(request):
 
 
 def getWaveform(request):
-    data = pd.read_csv('D:\precast_sale.csv', parse_dates=['date'], index_col='date')
-    data['amount'] = round(data['amount'] / 1000, 2)
+    #csv_file = 'your file'
+    #data = pd.read_csv(csv_file)
     TOOLS = "hover,crosshair,pan,wheel_zoom,box_zoom,reset,save,box_select"
     picture = figure(width=1200, height=400, tools=TOOLS)
-    #picture.line(data['date'], data['amount'], color='blue', alpha=0.5)
-    picture.line(x=[1, 2, 3, 4, 5], y=[6, 7, 2, 4, 5])
+    picture.line([1,2,3,4,5], [6,7,2,4,5], color='blue', alpha=0.5)
     script, div = components(picture, CDN)
     return render(request, 'waveform.html', {'script': script, 'div': div})

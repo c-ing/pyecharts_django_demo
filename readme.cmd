@@ -1,5 +1,6 @@
 项目运行命令：python manage.py runserver
 
+echarts-下钻文章：https://segmentfault.com/a/1190000006978935
 pyecharts官网文档：http://pyecharts.org/#/zh-cn/web_django?id=django-%e5%89%8d%e5%90%8e%e7%ab%af%e5%88%86%e7%a6%bb
 
 pyecharts的加载问题：
@@ -22,5 +23,13 @@ pipreqs . --encoding=utf8 --force
 -- bokeh
 https://docs.bokeh.org/en/latest/docs/installation.html
 https://www.zhangshengrong.com/p/zAaOK6A9ad/
+官网例子：https://docs.bokeh.org/en/latest/docs/user_guide/bokehjs.html#userguide-bokehjs
+ <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-1.4.0.min.js"></script>
+
+
 
 https://www.jianshu.com/p/1d367c8e9128
