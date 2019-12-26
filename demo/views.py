@@ -65,7 +65,7 @@ def bar_base() -> Bar:
         .add_yaxis("商家A", [randrange(0, 100) for _ in range(6)])
         .add_yaxis("商家B", [randrange(0, 100) for _ in range(6)])
         .set_global_opts(title_opts=opts.TitleOpts(title="Bar-基本示例", subtitle="我是副标题"))
-        .dump_options_with_quotes()
+        .dump_options()
     )
     return c
 
@@ -76,7 +76,7 @@ def scatter_base()->Scatter:
             .add_xaxis(Faker.choose())
             .add_yaxis("商家A", Faker.values())
             .set_global_opts(title_opts=opts.TitleOpts(title="Scatter-基本示例"))
-            .dump_options_with_quotes()
+            .dump_options()
     )
     print("===========scatter======")
     print(c)
@@ -104,11 +104,13 @@ def line_base()->Line:
         .add_yaxis("2015年",list(grouped2.loc[grouped2.year==2015,:]['amount']))
         .add_yaxis("2016年", list(grouped2.loc[grouped2.year == 2016, :]['amount']))
         .add_yaxis("2017年", list(grouped2.loc[grouped2.year == 2017, :]['amount']))
-            .add_yaxis("2018年", list(grouped2.loc[grouped2.year == 2018, :]['amount']))
-            .add_yaxis("2019年", list(grouped2.loc[grouped2.year == 2019, :]['amount']))
+        .add_yaxis("2018年", list(grouped2.loc[grouped2.year == 2018, :]['amount']))
+        .add_yaxis("2019年", list(grouped2.loc[grouped2.year == 2019, :]['amount']))
         .set_global_opts(title_opts=opts.TitleOpts(title="Line-自营销售数据"))
-         .dump_options_with_quotes()
+        #.dump_options_with_quotes()
+        .dump_options()
     )
+
     print("===========tpye-line=======")
     print(type(c))
     return c
