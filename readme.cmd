@@ -6,6 +6,14 @@ pyecharts官网文档：http://pyecharts.org/#/zh-cn/web_django?id=django-%e5%89
 pyecharts的加载问题：
 https://blog.csdn.net/arnolan/article/details/91459831
 
+进入到当前项目目录：cd  myproject
+创建虚拟环境：virtualenv venv -p python3
+
+激活虚拟环境：
+venv\Scripts\activate     # venv为创建的虚拟环境的名称
+安装完后 pyCharm 重新启动
+
+
 生成到requirement文件命令：
 在重新安装pip依赖时用requirement文档协助快速安装很方便，原理就是在笔记本上先生成requirement文档，让pip把虚拟环境中的依赖自动写进去，然后台式机上的新虚拟环境根据这个文档去安装依赖，命令一共2句，如下：
 在旧设备上快速生成requirement.txt的安装文件（文件名可以任意）
