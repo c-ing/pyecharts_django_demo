@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'demo',
+    'quicktool',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR,'templates'),
             os.path.join(BASE_DIR,'demo/templates'),
+            os.path.join(BASE_DIR,'quicktool/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,12 +80,27 @@ WSGI_APPLICATION = 'pyecharts_django_demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# 数据库配置 默认的数据库为sqlite
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+'''
+# database mysql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # mysql数据库引擎
+        'NAME': 'seckill',  # 数据库名
+        'USER': 'root', # 账号
+        'PASSWORD': '123456', # 密码
+        'HOST': '127.0.0.1', # host
+        'POST': 3306, # 端口
+    }
+}
+
 
 
 # Password validation

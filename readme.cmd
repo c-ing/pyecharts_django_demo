@@ -52,7 +52,11 @@
     https://www.jianshu.com/p/1d367c8e9128
 
 
-7.djago book,集成已有的数据库
+7.django book,集成已有的数据库
     # The Django Book -> http://djangobook.py3k.cn/2.0/
     Django自带了一个可以通过读取您的数据表结构来生成model的工具.
     该辅助工具称为inspectdb,你可以通过执行manage.py inspectdb来调用它.
+
+    # Django web框架-----Django连接现有mysql数据库
+        https://juejin.im/post/5cc6b4bde51d456e3267e492
+        python manage.py inspectdb > D:\PycharmProjects\pyecharts_django_demo\quicktool\models.py
